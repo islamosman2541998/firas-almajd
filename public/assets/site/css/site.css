@@ -207,3 +207,15 @@ html main .charter-grid h3{font-weight:800}
 
 /* Sliders: single-finger pointer instead of the open-hand grab cursor. */
 .hero-swiper,.partners-slider,.partners-slider.is-dragging{cursor:pointer}
+
+/* Services accordion: no English subtitle; two services per row from tablet up, each panel opening under its own title. */
+.service-toggle,html[lang=en] .service-toggle{grid-template-columns:minmax(0,1fr) 36px}
+@media(min-width:768px){
+  .service-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px;border-top:0}
+  .service-list .service-item:nth-child(-n+2){border-top:1px solid #ffffff25}
+  body[data-page=services] .service-list .service-item:nth-child(-n+2){border-top-color:#ccc5b6}
+  .service-content{grid-template-columns:1fr;gap:18px;padding-inline:0 60px}
+  .service-content ul{grid-template-columns:1fr 1fr}
+}
+@media(min-width:768px) and (max-width:1199px){.service-content ul{grid-template-columns:1fr}}
+@media(max-width:767px){.service-toggle,html[lang=en] .service-toggle{grid-template-columns:minmax(0,1fr) 30px}}
