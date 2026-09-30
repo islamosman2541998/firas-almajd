@@ -92,7 +92,7 @@ return [
                 'phone_label' => ['type' => 'text', 't' => true, 'label' => $l('عنوان الهاتف', 'Phone label'), 'default' => $t('اتصل بنا', 'CALL US')],
                 'email_label' => ['type' => 'text', 't' => true, 'label' => $l('عنوان البريد', 'Email label'), 'default' => $t('البريد الإلكتروني', 'EMAIL')],
                 'cr_label' => ['type' => 'text', 't' => true, 'label' => $l('عنوان السجل التجاري', 'CR label'), 'default' => $t('رقم السجل التجاري', 'Commercial registration number')],
-                'po_box_label' => ['type' => 'text', 't' => true, 'label' => $l('عنوان صندوق البريد', 'P.O. Box label'), 'default' => $t('صندوق البريد', 'P.O. Box')],
+                'po_box_label' => ['type' => 'text', 't' => true, 'label' => $l('عنوان صندوق البريد', 'P.O. Box label'), 'default' => $t('P.O.Box', 'P.O. Box')],
                 'address_label' => ['type' => 'text', 't' => true, 'label' => $l('عنوان المقر', 'Address label'), 'default' => $t('مقرّنا', 'OUR OFFICE')],
                 'side' => ['type' => 'select', 'label' => $l('العمود الثاني', 'Second column'), 'default' => 'map', 'options' => ['map' => $l('الخريطة', 'Map'), 'form' => $l('نموذج التواصل', 'Contact form')]],
                 'map_link_text' => ['type' => 'text', 't' => true, 'label' => $l('نص رابط الخريطة', 'Map link text'), 'default' => $t('عرض المنطقة على Google Maps', 'View the area on Google Maps')],
