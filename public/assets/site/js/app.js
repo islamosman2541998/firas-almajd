@@ -135,7 +135,7 @@
       fadeEffect: {crossFade: true},
       loop: hero.dataset.loop === '1',
       speed: 900,
-      grabCursor: true,
+      grabCursor: false,
       autoplay: autoplay ? {delay: Number(hero.dataset.delay) || 6000, disableOnInteraction: false, pauseOnMouseEnter: true} : false,
       keyboard: {enabled: true, onlyInViewport: true},
       a11y: {enabled: true},

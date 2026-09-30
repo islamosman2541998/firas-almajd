@@ -24,6 +24,7 @@
                         <x-admin.input model="data.phone_display" :label="__('admin.settings.phone_display')" dir="ltr" />
                         <x-admin.input model="data.whatsapp" :label="__('admin.settings.whatsapp')" dir="ltr" :hint="__('admin.settings.whatsapp_hint')" />
                         <x-admin.input model="data.cr_number" :label="__('admin.settings.cr_number')" dir="ltr" />
+                        <x-admin.input model="data.po_box" :label="__('admin.settings.po_box')" dir="ltr" />
                         <x-admin.input model="data.email_primary" type="email" :label="__('admin.settings.email_primary')" dir="ltr" />
                         <x-admin.input model="data.email_secondary" type="email" :label="__('admin.settings.email_secondary')" dir="ltr" />
                     </div>

@@ -50,6 +50,7 @@ class General extends SettingsPage
             'data.email_secondary' => ['nullable', 'email', 'max:190'],
             'data.notify_email' => ['nullable', 'email', 'max:190'],
             'data.cr_number' => ['nullable', 'string', 'max:40'],
+            'data.po_box' => ['nullable', 'string', 'max:60'],
             'data.map_query' => ['nullable', 'string', 'max:255'],
             'data.social' => ['array'],
             'data.social.*.platform' => ['required', 'in:'.implode(',', array_keys(config('site.social_platforms')))],

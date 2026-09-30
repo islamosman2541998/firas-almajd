@@ -37,6 +37,7 @@ return [
         'email_primary' => 'FIRAS-CH@FIRASALMAJD.COM',
         'email_secondary' => 'projects@firasalmajd.com',
         'cr_number' => '7054600239',
+        'po_box' => '',
         'address' => $t("حي الملك عبدالعزيز، شارع ابن كثير\nالرياض 12233، المملكة العربية السعودية", "King Abdulaziz District, Ibn Katheer St.\nRiyadh 12233, Saudi Arabia"),
         'map_query' => 'King Abdulaziz District Ibn Katheer Riyadh 12233',
         'header_button_show' => true,

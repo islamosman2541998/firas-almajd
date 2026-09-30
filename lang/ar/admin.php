@@ -245,7 +245,7 @@ return [
         'tagline_hint' => 'يظهر أسفل الشعار في الفوتر', 'logo_alt' => 'النص البديل للشعار',
         'contact' => 'بيانات التواصل', 'phone' => 'رقم الهاتف (للاتصال)', 'phone_hint' => 'بالصيغة الدولية مثل +966500000000',
         'phone_display' => 'رقم الهاتف (كما يظهر)', 'whatsapp' => 'رقم WhatsApp', 'whatsapp_hint' => 'أرقام فقط مع كود الدولة، مثل 966500000000',
-        'cr_number' => 'رقم السجل التجاري', 'email_primary' => 'البريد الرئيسي', 'email_secondary' => 'بريد إضافي',
+        'cr_number' => 'رقم السجل التجاري', 'po_box' => 'صندوق البريد (P.O.Box)', 'email_primary' => 'البريد الرئيسي', 'email_secondary' => 'بريد إضافي',
         'address' => 'العنوان', 'map_query' => 'موقع الخريطة', 'map_query_hint' => 'اسم المكان أو الإحداثيات كما تكتبها في Google Maps',
         'header_button' => 'زر الشريط العلوي', 'button_text' => 'نص الزر', 'button_link' => 'رابط الزر',
         'whatsapp_templates' => 'رسائل WhatsApp', 'whatsapp_templates_hint' => 'القوالب المستخدمة بعد إرسال النماذج، المتغيرات بين {} مثل {name}',

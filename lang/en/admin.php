@@ -245,7 +245,7 @@ return [
         'tagline_hint' => 'Shown under the footer logo', 'logo_alt' => 'Logo alt text',
         'contact' => 'Contact details', 'phone' => 'Phone (for calling)', 'phone_hint' => 'International format, e.g. +966500000000',
         'phone_display' => 'Phone (as displayed)', 'whatsapp' => 'WhatsApp number', 'whatsapp_hint' => 'Digits only with country code, e.g. 966500000000',
-        'cr_number' => 'Commercial registration', 'email_primary' => 'Main email', 'email_secondary' => 'Secondary email',
+        'cr_number' => 'Commercial registration', 'po_box' => 'P.O. Box', 'email_primary' => 'Main email', 'email_secondary' => 'Secondary email',
         'address' => 'Address', 'map_query' => 'Map location', 'map_query_hint' => 'Place name or coordinates as typed in Google Maps',
         'header_button' => 'Header button', 'button_text' => 'Button text', 'button_link' => 'Button link',
         'whatsapp_templates' => 'WhatsApp messages', 'whatsapp_templates_hint' => 'Templates used after form submission; variables in {} such as {name}',

@@ -184,3 +184,26 @@ html[lang=en] .service-toggle{grid-template-columns:minmax(0,1fr) 36px}
 /* Services accordion without its bottom link: trim the trailing space. */
 .services.section-space{padding-bottom:72px}
 @media(max-width:767px){.services.section-space{padding-bottom:48px}}
+
+/* Services grid: every card matches the large featured size. */
+.service-card,.service-card:first-child,.service-card:nth-child(2){grid-column:span 6}
+.service-card-photo,.service-card:first-child .service-card-photo,.service-card:nth-child(2) .service-card-photo{height:370px}
+@media(max-width:1199px){.service-card-photo,.service-card:first-child .service-card-photo,.service-card:nth-child(2) .service-card-photo{height:310px}}
+@media(max-width:991px){.service-card-photo,.service-card:first-child .service-card-photo,.service-card:nth-child(2) .service-card-photo{height:300px}}
+@media(max-width:767px){.service-card,.service-card:first-child,.service-card:nth-child(2){grid-column:span 12}.service-card-photo,.service-card:first-child .service-card-photo,.service-card:nth-child(2) .service-card-photo{height:280px}}
+@media(max-width:359px){.service-card-photo,.service-card:first-child .service-card-photo,.service-card:nth-child(2) .service-card-photo{height:230px}}
+
+/* About principles: gold line spans the text, title and text centred under it. */
+.about-principles>div{width:fit-content;max-width:100%;text-align:center}
+.about-principles .mini-line{width:100%}
+
+/* About image: matching gold corner on the opposite (bottom, inline-end) corner. */
+.about-visual{margin-bottom:17px}
+.about-visual::after{content:"";position:absolute;inset-inline-end:-17px;bottom:-17px;width:90px;height:90px;border-bottom:1px solid var(--gold);border-inline-end:1px solid var(--gold);z-index:-1;pointer-events:none}
+
+/* Charter: same background as the page, bolder item titles. */
+.company-charter{background:var(--paper)}
+html main .charter-grid h3{font-weight:800}
+
+/* Sliders: single-finger pointer instead of the open-hand grab cursor. */
+.hero-swiper,.partners-slider,.partners-slider.is-dragging{cursor:pointer}
