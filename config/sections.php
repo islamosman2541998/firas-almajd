@@ -100,7 +100,7 @@ return [
                 'name_label' => ['type' => 'text', 't' => true, 'label' => $l('حقل الاسم', 'Name label'), 'default' => $t('الاسم', 'Your name')],
                 'name_placeholder' => ['type' => 'text', 't' => true, 'label' => $l('مثال الاسم', 'Name placeholder'), 'default' => $t('اسمك الكريم', 'Full name')],
                 'mobile_label' => ['type' => 'text', 't' => true, 'label' => $l('حقل الجوال', 'Mobile label'), 'default' => $t('رقم الجوال', 'Mobile number')],
-                'form_email_label' => ['type' => 'text', 't' => true, 'label' => $l('حقل البريد', 'Email field label'), 'default' => $t('البريد الإلكتروني (اختياري)', 'Email address (optional)')],
+                'form_email_label' => ['type' => 'text', 't' => true, 'label' => $l('حقل البريد', 'Email field label'), 'default' => $t('البريد الإلكتروني', 'Email address')],
                 'service_label' => ['type' => 'text', 't' => true, 'label' => $l('حقل الخدمة', 'Service label'), 'default' => $t('الخدمة المطلوبة', 'Required service')],
                 'service_placeholder' => ['type' => 'text', 't' => true, 'label' => $l('اختيار الخدمة', 'Service placeholder'), 'default' => $t('اختر الخدمة المناسبة', 'Choose a service')],
                 'message_label' => ['type' => 'text', 't' => true, 'label' => $l('حقل الرسالة', 'Message label'), 'default' => $t('نبذة عن المشروع', 'Project brief')],

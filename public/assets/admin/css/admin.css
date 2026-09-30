@@ -381,3 +381,12 @@ html[dir=rtl] .a-drawer{animation-name:a-slide-rtl}
 .auth-error{font-size:12.5px;margin-top:6px;color:#ff8f7a}
 .auth-foot{text-align:center;font-size:11.5px;margin-top:22px}
 .auth-lang{position:fixed;top:18px;inset-inline-end:18px;font-size:13px;padding:6px 12px;border:1px solid #ffffff40;color:#fff}
+.auth-body,.auth-body *,.auth-body *::before,.auth-body *::after{box-sizing:border-box}
+.auth-logo{max-width:100%}
+@media(max-width:575px){
+  .auth-body{padding:64px 14px 24px;align-items:start}
+  .auth-card{padding:28px 20px 22px}
+  .auth-card h1{font-size:20px}
+  .auth-card .auth-input{font-size:16px}
+  .auth-lang{top:14px;inset-inline-end:14px}
+}

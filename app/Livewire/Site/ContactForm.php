@@ -47,7 +47,7 @@ class ContactForm extends Component
         return [
             'name' => ['required', 'string', 'min:2', 'max:100'],
             'phone' => ['required', 'string', 'regex:/^[+0-9 ()\-]{7,25}$/'],
-            'email' => ['nullable', 'email', 'max:254'],
+            'email' => ['required', 'email', 'max:254'],
             'service' => ['required', Rule::in($this->services()->pluck('slug')->all())],
             'message' => ['required', 'string', 'min:5', 'max:2000'],
         ];

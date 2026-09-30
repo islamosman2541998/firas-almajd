@@ -219,3 +219,7 @@ html main .charter-grid h3{font-weight:800}
 }
 @media(min-width:768px) and (max-width:1199px){.service-content ul{grid-template-columns:1fr}}
 @media(max-width:767px){.service-toggle,html[lang=en] .service-toggle{grid-template-columns:minmax(0,1fr) 30px}}
+
+/* Contact page (form side): form only, centred. */
+.contact-form-center{max-width:760px;margin-inline:auto}
+@media(max-width:767px){.contact-form-only.section-space{padding:40px 0}}
