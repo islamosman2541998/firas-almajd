@@ -17,7 +17,7 @@ class ProjectSeeder extends Seeder
         $projects = [
             ['seed/project-villa.png', 'construction', ['ar' => 'فيلا سكنية معاصرة', 'en' => 'Contemporary private villa'], ['ar' => 'مقاولات وتشطيبات خارجية', 'en' => 'Construction and exterior finishes']],
             ['seed/project-cafe.png', 'fitout', ['ar' => 'تجهيز مساحة تجارية', 'en' => 'Commercial space fit-out'], ['ar' => 'تشطيبات وJoinery وأعمال MEP', 'en' => 'Fit-out, joinery and MEP works']],
-            ['seed/project-landscape.png', 'landscape', ['ar' => 'تنسيق فناء سكني', 'en' => 'Residential courtyard landscape'], ['ar' => 'Landscape وشبكات ري', 'en' => 'Landscape and irrigation']],
+            ['seed/project-landscape.png', 'construction', ['ar' => 'تنسيق فناء سكني', 'en' => 'Residential courtyard landscape'], ['ar' => 'Landscape وشبكات ري', 'en' => 'Landscape and irrigation']],
         ];
 
         foreach ($projects as $i => [$image, $service, $title, $category]) {
