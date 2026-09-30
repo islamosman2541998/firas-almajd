@@ -294,7 +294,6 @@ return [
             'fields' => [
                 'eyebrow' => ['type' => 'text', 't' => true, 'label' => $l('النص الصغير', 'Eyebrow'), 'default' => $t('نطاق الخدمة', 'SERVICE SCOPE')],
                 'title' => ['type' => 'textarea', 't' => true, 'label' => $l('العنوان', 'Title'), 'default' => $t("أعمال متكاملة\nوتفاصيل واضحة", "A connected scope.\nClear details.")],
-                'button_text' => ['type' => 'text', 't' => true, 'label' => $l('نص الزر', 'Button text'), 'default' => $t('ناقش هذه الخدمة معنا', 'Discuss this service')],
             ],
         ],
 

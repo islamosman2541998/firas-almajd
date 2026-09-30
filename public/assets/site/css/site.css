@@ -201,8 +201,8 @@ html[lang=en] .service-toggle{grid-template-columns:minmax(0,1fr) 36px}
 .about-visual{margin-bottom:17px}
 .about-visual::after{content:"";position:absolute;inset-inline-end:-17px;bottom:-17px;width:90px;height:90px;border-bottom:1px solid var(--gold);border-inline-end:1px solid var(--gold);z-index:-1;pointer-events:none}
 
-/* Charter: same background as the page, bolder item titles. */
-.company-charter{background:var(--paper)}
+/* Charter, sectors and gallery sections: same background as the page; bolder charter titles. */
+.company-charter,.sectors,.portfolio-section,.page-gallery,.request-prep{background:var(--paper)}
 html main .charter-grid h3{font-weight:800}
 
 /* Sliders: single-finger pointer instead of the open-hand grab cursor. */
