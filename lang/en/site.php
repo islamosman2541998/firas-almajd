@@ -1,0 +1,33 @@
+<?php
+
+// Interface labels of the public site. Editable from the dashboard ("Site texts").
+return [
+    'skip' => 'Skip to content',
+    'loading' => 'Loading',
+    'main_nav' => 'Main navigation',
+    'mobile_nav' => 'Mobile navigation',
+    'open_menu' => 'Open navigation',
+    'switch_language' => 'التبديل إلى العربية',
+    'breadcrumb_home' => 'Home',
+    'close' => 'Close',
+    'previous' => 'Previous',
+    'next' => 'Next',
+    'slide_of' => 'Slide :n of :total',
+    'pause_autoplay' => 'Pause autoplay',
+    'play_autoplay' => 'Play autoplay',
+    'partner_logos' => 'Partner logos',
+    'navigate_partners' => 'Navigate partner logos',
+    'partner_group' => 'Group :n',
+    'gallery_close' => 'Close gallery',
+    'certificate_viewer' => 'Certificate viewer',
+    'certificate_n' => 'Certificate :n',
+    'view_certificate_n' => 'View certificate :n',
+    'map_title' => 'Office area map',
+    'play_video' => 'Play video',
+    'too_many_attempts' => 'Too many attempts. Please try again shortly.',
+    'not_found_title' => 'Page not found',
+    'not_found_text' => 'The page may have moved or its link changed. Head back home and keep browsing.',
+    'server_error_title' => 'Something went wrong',
+    'server_error_text' => 'We are looking into it. Please try again in a moment.',
+    'back_home' => 'Back to home',
+];

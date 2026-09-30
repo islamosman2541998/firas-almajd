@@ -1,0 +1,1 @@
+<section class="page-cta"><div class="container-wide"><h2>{{ ml($data['title']) }}</h2>@if (filled(tval($data['button_text'])))<a class="button button-dark" href="{{ link_url($data['button_url']) }}"><span>{{ tval($data['button_text']) }}</span><span aria-hidden="true" class="arrow"><x-site.arrow /></span></a>@endif</div></section>

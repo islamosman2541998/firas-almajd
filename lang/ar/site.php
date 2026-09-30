@@ -1,0 +1,33 @@
+<?php
+
+// Interface labels of the public site. Editable from the dashboard ("Site texts").
+return [
+    'skip' => 'انتقل إلى المحتوى',
+    'loading' => 'جارٍ التحميل',
+    'main_nav' => 'التنقل الرئيسي',
+    'mobile_nav' => 'التنقل على الهاتف',
+    'open_menu' => 'فتح القائمة',
+    'switch_language' => 'Switch to English',
+    'breadcrumb_home' => 'الرئيسية',
+    'close' => 'إغلاق',
+    'previous' => 'السابق',
+    'next' => 'التالي',
+    'slide_of' => 'شريحة :n من :total',
+    'pause_autoplay' => 'إيقاف الحركة',
+    'play_autoplay' => 'تشغيل الحركة',
+    'partner_logos' => 'شعارات الشركاء',
+    'navigate_partners' => 'التنقل بين الشعارات',
+    'partner_group' => 'المجموعة :n',
+    'gallery_close' => 'إغلاق المعرض',
+    'certificate_viewer' => 'عرض الشهادة',
+    'certificate_n' => 'شهادة :n',
+    'view_certificate_n' => 'عرض الشهادة :n',
+    'map_title' => 'خريطة منطقة المقر',
+    'play_video' => 'تشغيل الفيديو',
+    'too_many_attempts' => 'محاولات كثيرة، يرجى المحاولة بعد قليل',
+    'not_found_title' => 'الصفحة غير موجودة',
+    'not_found_text' => 'ربما نُقلت الصفحة أو تغيّر رابطها. يمكنك العودة للرئيسية ومتابعة التصفح',
+    'server_error_title' => 'حدث خطأ غير متوقع',
+    'server_error_text' => 'نعمل على حل المشكلة، يرجى المحاولة مرة أخرى بعد قليل',
+    'back_home' => 'العودة للرئيسية',
+];

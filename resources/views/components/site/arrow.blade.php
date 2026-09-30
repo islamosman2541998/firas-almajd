@@ -1,0 +1,1 @@
+<svg aria-hidden="true" class="icon-arrow" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M6 18 18 6M6 6h12v12"></path></svg>

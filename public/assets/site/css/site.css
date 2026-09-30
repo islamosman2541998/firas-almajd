@@ -1,0 +1,186 @@
+/*
+ * Firas Al Majd — additions for the dynamic site.
+ * styles.css and pages.css are the untouched design; this file only adds
+ * components the design did not have yet, in the same visual language.
+ */
+
+/* ---------- Navigation dropdowns ---------- */
+.nav-dropdown{position:relative;display:flex;align-items:center;align-self:stretch}
+.desktop-nav .nav-dropdown-toggle{display:inline-flex;align-items:center;gap:8px;background:none;border:0;padding:0;font:inherit;font-size:14px;color:#d3d0cd;position:relative;transition:color .25s;cursor:pointer}
+.desktop-nav .nav-dropdown-toggle:hover,.desktop-nav .nav-dropdown-toggle.active,.nav-dropdown.is-open .nav-dropdown-toggle{color:var(--gold-light)}
+.desktop-nav button.nav-dropdown-toggle.active:after{content:'';width:5px;height:5px;position:absolute;bottom:-16px;left:calc(50% - 2px);background:var(--gold);transform:rotate(45deg)}
+.nav-caret{display:inline-block;width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);position:relative;top:-2px;transition:transform .25s}
+.nav-dropdown.is-open .nav-caret{transform:rotate(225deg);top:1px}
+.nav-dropdown-menu{position:absolute;top:100%;inset-inline-start:-22px;min-width:260px;max-width:340px;padding:10px 0;background:var(--ink);border-top:2px solid var(--gold);box-shadow:0 22px 40px -18px #0009;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .22s ease,transform .22s ease,visibility .22s;z-index:60}
+.nav-dropdown.is-open .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:none}
+.desktop-nav .nav-dropdown-menu a{display:block;padding:11px 22px;font-size:13px;line-height:1.7;color:#cfcac3;white-space:normal;border-inline-start:2px solid transparent;transition:color .2s,background .2s,border-color .2s}
+.desktop-nav .nav-dropdown-menu a:hover,.desktop-nav .nav-dropdown-menu a:focus-visible,.desktop-nav .nav-dropdown-menu a.is-current{color:var(--gold-light);background:#ffffff08;border-inline-start-color:var(--gold)}
+.desktop-nav .nav-dropdown-menu a:after{display:none}
+@media(max-width:1199px){.desktop-nav .nav-dropdown-toggle{font-size:12px}}
+
+.mobile-group{border-bottom:1px solid #ffffff0d}
+.mobile-group-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mobile-nav .mobile-group-head>a,.mobile-group-head>span{display:block;flex:1;padding:12px 0;border-bottom:0}
+.mobile-sub-toggle{width:40px;height:40px;background:none;border:0;color:#d3d0cd;position:relative;flex-shrink:0}
+.mobile-sub-toggle:before{content:'';position:absolute;top:50%;left:50%;width:7px;height:7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:translate(-50%,-25%) rotate(225deg);transition:transform .25s}
+.mobile-sub-toggle.collapsed:before{transform:translate(-50%,-75%) rotate(45deg)}
+.mobile-subnav{padding-inline-start:16px;border-inline-start:1px solid #c9a32d55;margin-bottom:10px}
+.mobile-nav .mobile-subnav a{padding:9px 0;font-size:13px;color:#bdb6ab;border-bottom:0}
+.mobile-nav a.active,.mobile-group-head>a.active{color:var(--gold-light)}
+
+/* ---------- Hero slider ---------- */
+.hero>.hero-single,.hero>.hero-swiper{position:absolute;inset:0;width:100%;height:100%}
+.hero-track{height:100%}
+.hero-slide{position:relative;isolation:isolate;height:100%;display:flex;align-items:center;overflow:hidden}
+.hero-slide video.hero-image{object-fit:cover}
+.hero-slider .hero-image{animation:none}
+.hero-slider .swiper-slide-active .hero-image{animation:hero-enter 1.8s ease-out both}
+.hero-slider .hero-content{animation:none;opacity:0;transform:translateY(20px);transition:opacity .8s ease .25s,transform .8s ease .25s}
+.hero-slider .swiper-slide-active .hero-content{opacity:1;transform:none}
+.hero-arrows{position:absolute;left:0;right:0;bottom:34px;margin-inline:auto;display:flex;justify-content:flex-end;gap:10px;z-index:5;pointer-events:none}
+.hero-arrow{pointer-events:auto;width:46px;height:46px;border-radius:50%;border:1px solid #ffffff45;background:#231f2059;color:#fff;display:grid;place-items:center;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s,color .2s,border-color .2s}
+.hero-arrow:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.hero-arrow.swiper-button-disabled{opacity:.35;cursor:default}
+.hero-next svg{transform:rotate(180deg)}
+html[dir=ltr] .hero-prev svg{transform:rotate(180deg)}html[dir=ltr] .hero-next svg{transform:none}
+.hero-pagination{position:absolute;left:0;right:0;bottom:40px;display:flex;justify-content:center;gap:2px;z-index:5}
+.hero-dot{width:26px;height:26px;display:grid;place-items:center;cursor:pointer}
+.hero-dot:before{content:'';width:7px;height:7px;border-radius:10px;background:#ffffff8c;transition:width .25s,background .25s}
+.hero-dot.is-active{width:38px}.hero-dot.is-active:before{width:25px;background:var(--gold)}
+.hero .hero-custom-button{background:var(--hero-btn-bg,var(--gold));color:var(--hero-btn-color,var(--ink))}
+.hero .hero-custom-button:hover{background:var(--hero-btn-hover,var(--gold-light));color:var(--hero-btn-color,var(--ink))}
+@media(max-width:767px){.hero-arrows{display:none}.hero-pagination{bottom:22px}}
+
+/* ---------- Forms (Livewire) ---------- */
+.field-error{display:block;color:#a13d2b;font-size:12px;font-weight:600;margin-top:6px}
+.form-control.is-invalid,.form-select.is-invalid{border-color:#a13d2b;background-image:none;padding-inline-end:0}
+.form-select.is-invalid{padding-inline-end:30px}
+.hp-field{position:absolute!important;inset-inline-start:-9999px;width:1px;height:1px;overflow:hidden}
+.contact-form,.career-form{position:relative}
+.btn-spinner{display:inline-block;width:18px;height:18px;border:2px solid currentColor;border-inline-end-color:transparent;border-radius:50%;animation:fam-spin .7s linear infinite}
+.button[disabled]{opacity:.75;cursor:progress;transform:none}
+@keyframes fam-spin{to{transform:rotate(360deg)}}
+.career-form .dark-link,#whatsappFallback{display:inline-flex;margin-top:12px;font-size:12px}
+.career-empty{font-size:16px;color:var(--muted);padding:28px 0;margin:0;border-top:1px solid var(--line)}
+
+/* ---------- Partners with links ---------- */
+.partner-card>a{display:flex;width:100%;height:100%;align-items:center;justify-content:center}
+
+/* ---------- Social platforms not in the original design ---------- */
+.social-icon[aria-label="YouTube"]{background:#ff0000;border-color:#ff0000;color:#fff}
+.social-icon[aria-label="WhatsApp"]{background:#25d366;border-color:#25d366;color:#fff}
+a.social-icon{transition:transform .25s}a.social-icon:hover{transform:translateY(-3px)}
+
+/* ---------- Custom pages ---------- */
+.page-intro .breadcrumb-nav{padding-top:10px}
+.page-intro .breadcrumb-nav a:hover{color:var(--gold-light)}
+.custom-page-body{background:var(--paper)}
+.custom-page-text{max-width:880px;font-size:17px;line-height:2.15;color:#4f4a44}
+.page-gallery{background:#e9e5dc}
+.portfolio-video{cursor:pointer}
+.portfolio-video video{display:block;width:100%;height:340px;object-fit:cover;pointer-events:none}
+.portfolio-video.wide video{height:440px}.portfolio-video.tall video{height:540px}
+.play-badge{position:absolute;inset:0;margin:auto;width:66px;height:66px;border-radius:50%;background:#f8f7f3e8;z-index:3;transition:background .25s,transform .25s}
+.play-badge:before{content:'';position:absolute;top:50%;left:50%;transform:translate(-35%,-50%);border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent var(--ink)}
+.portfolio-video:hover .play-badge{background:var(--gold-light);transform:scale(1.06)}
+#galleryLightboxImage[hidden]{display:none}
+.lightbox-video:empty{display:none}
+.lightbox-video video,.lightbox-video iframe{display:block;width:100%;aspect-ratio:16/9;max-height:88vh;border:0;background:#000}
+.file-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.file-card{display:flex;align-items:center;gap:20px;padding:22px 24px;background:#fff;border-top:2px solid var(--gold)}
+.file-icon{flex:0 0 56px;height:68px;display:grid;place-items:center;background:var(--ink);color:var(--gold-light);font:700 12px Arial,sans-serif;letter-spacing:1px}
+.file-copy{flex:1;min-width:0}.file-copy h3{font-size:17px;font-weight:700;margin:0 0 4px;overflow-wrap:anywhere}.file-copy small{color:var(--muted);font-size:12px}
+.file-actions{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.file-actions button.dark-link{background:none;border:0;border-bottom:1px solid #9c8c64;padding:0 0 5px;color:var(--ink)}
+.file-actions>a{font-size:12px;color:#8b702b;text-decoration:underline;text-underline-offset:4px}
+.pdf-dialog iframe{display:block;width:100%;height:100%;border:0;background:#fff}
+@media(max-width:767px){.file-list{grid-template-columns:1fr}.file-card{flex-wrap:wrap}.file-actions{flex-direction:row;width:100%;justify-content:space-between;align-items:center}.custom-page-text{font-size:15px}.portfolio-video video{height:auto;max-height:520px}}
+
+/* ---------- Error page ---------- */
+.error-page{min-height:60vh;display:flex;align-items:center;background:var(--paper)}
+.error-page .error-code{font:400 clamp(90px,14vw,180px)/1 Georgia,serif;color:#c5bba2;margin:0}
+.error-page p{color:var(--muted);font-size:16px;max-width:480px}
+
+/* =====================================================================
+ * Readability pass (client request, 2026-09-30):
+ * larger + bolder small copy (18px like .lead-copy), bigger eyebrows,
+ * no arrows next to buttons/links.
+ * ===================================================================== */
+
+/* No arrows beside buttons and text links; the label is centred. */
+.button .arrow,.dark-link .arrow,.text-link .arrow{display:none}
+.button{justify-content:center;gap:10px}
+
+/* Eyebrows (e.g. "02 / خبراتنا في خدمتك", "ما الذي يوجّه عملنا؟", "أين تتكامل خدماتنا")
+   sized close to the heading that follows them. */
+.eyebrow{font-size:clamp(19px,1.7vw,24px);font-weight:700;margin-bottom:12px;letter-spacing:0;line-height:1.6}
+.eyebrow>span:first-child:not(:only-child){font-size:.9em}
+.partners-kicker{font-size:13px;font-weight:700}
+
+/* About principles: larger, original colours kept (home + about page). */
+.about-principles h3{font-size:19px;font-weight:700}
+.about-principles p{font-size:16px;font-weight:500}
+
+/* Small copy follows the lead text size (.lead-copy = 18px). */
+.body-copy,.contact .contact-intro,.section-heading>p,.faq-layout>div>p,.office-layout>div>p,
+.detail-grid>div>p,.prep-grid p,.custom-page-text,
+.service-card>p,.sector-row p,.charter-grid p,.process-step p,.method-row p,.faq-item>p,
+.career-card p,.landscape-row p,.support-text p,.service-content>p{font-size:18px;font-weight:500;line-height:2}
+
+/* Charter ("ما الذي يوجّه عملنا؟"): larger eyebrow, smaller heading, gold item titles. */
+.charter-heading .eyebrow{font-size:clamp(22px,2vw,28px)}
+.charter-heading h2{font-size:clamp(24px,2.2vw,30px)!important}
+html main .charter-grid h3{color:var(--gold)}
+
+/* Services accordion */
+.service-content li{font-size:15px;font-weight:600;line-height:1.9}
+.service-content li:before{top:.8em;width:5px;height:5px}
+.service-en{font-size:13px;font-weight:600}
+
+/* Small labels & meta */
+.card-number,.certificate-number,.sector-row>span,.charter-grid article>span{font-size:14px;font-weight:700}
+.project-meta,.career-meta{font-size:14px}
+.method-row small{font-size:14px;font-weight:600}
+.certificate-caption{font-size:15px}
+.contact-form label,.career-form label{font-size:15px}
+.contact .form-note,.form-note{font-size:14px;font-weight:600}
+.form-status{font-size:14px;font-weight:600}
+.contact-map>a,.expanded-footer .footer-bottom,.site-footer .footer-bottom{font-size:14px;font-weight:600}
+.partners-heading p{font-size:16px;font-weight:600}
+.scope-list>li>span:first-child{font-size:15px;font-weight:700}
+.desktop-nav a,.desktop-nav .nav-dropdown-toggle{font-weight:600}
+
+@media(max-width:767px){
+  .eyebrow{font-size:19px}
+  .body-copy,.contact .contact-intro,.section-heading>p,.faq-layout>div>p,.office-layout>div>p,
+  .detail-grid>div>p,.prep-grid p,.custom-page-text,
+  .service-card>p,.sector-row p,.charter-grid p,.process-step p,.method-row p,.faq-item>p,.career-card p,.service-content>p{font-size:16px}
+  .charter-heading .eyebrow{font-size:21px}
+  .charter-heading h2{font-size:24px!important}
+  .service-content li{font-size:14px}
+  .about-principles h3{font-size:17px}
+  .about-principles p{font-size:15px}
+}
+
+/* ---------- Numbers removed (charter, sectors, services accordion) ---------- */
+.charter-grid h3{margin-top:0}
+.sector-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.service-toggle,html[lang=en] .service-toggle{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 36px}
+html[lang=en] .service-toggle{grid-template-columns:minmax(0,1fr) 36px}
+.service-content{padding-inline:0 60px}
+
+/* Headings that follow an eyebrow: same moderate size as the charter heading. */
+.services .section-heading h2,.sectors .section-heading h2{font-size:clamp(24px,2.2vw,30px)!important}
+
+@media(max-width:991px){.sector-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:767px){
+  .sector-row{grid-template-columns:1fr;gap:6px}
+  .sector-row p{grid-column:auto}
+  .service-toggle,html[lang=en] .service-toggle{grid-template-columns:minmax(0,1fr) 30px}
+  .service-content{padding-inline:0 38px}
+  .services .section-heading h2,.sectors .section-heading h2{font-size:24px!important}
+}
+
+/* Services accordion without its bottom link: trim the trailing space. */
+.services.section-space{padding-bottom:72px}
+@media(max-width:767px){.services.section-space{padding-bottom:48px}}
