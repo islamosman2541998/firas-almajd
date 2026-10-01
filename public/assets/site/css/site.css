@@ -353,3 +353,15 @@ html[dir=rtl] .sg-prev svg{transform:none}html[dir=rtl] .sg-next svg{transform:s
 .scope-list>li>span:last-child{font-size:17px;line-height:1.8}
 .scope-gallery-copy h2,.detail-scope .detail-grid h2{white-space:nowrap}
 @media(max-width:767px){.scope-list>li{padding:11px 0;gap:14px}.scope-list>li>span:last-child{font-size:16px}.scope-gallery-copy h2,.detail-scope .detail-grid h2{white-space:normal}}
+
+/* Contact details: outlined circle icon beside each item. */
+.contact-details .cd-item{display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:14px;align-items:start;justify-items:start}
+.contact-details .cd-item>:not(.cd-icon){grid-column:2}
+.contact-details .cd-item>.cd-icon{grid-row:1 / span 6;align-self:start}
+.cd-icon{width:46px;height:46px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;color:var(--ink);background:transparent;transition:background .25s,color .25s,border-color .25s}
+.cd-icon svg{width:21px;height:21px}
+.cd-icon .f{fill:currentColor}
+.cd-icon .s{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.contact .contact-details .cd-icon{color:var(--ink);margin:0;font-size:0}
+.contact .contact-details a.cd-item:hover .cd-icon,.contact .contact-details .contact-emails.cd-item:hover .cd-icon{background:var(--ink);color:var(--gold-light)}
+@media(max-width:767px){.contact-details .cd-item{grid-template-columns:40px minmax(0,1fr);column-gap:12px}.cd-icon{width:40px;height:40px}.cd-icon svg{width:18px;height:18px}}
