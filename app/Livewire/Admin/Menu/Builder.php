@@ -60,6 +60,16 @@ class Builder extends Component
         $this->formOpen = true;
     }
 
+    /** Switching the link type starts its target fresh so no stale value fails validation unseen. */
+    public function updatedFormType(): void
+    {
+        $this->form['linkable_id'] = '';
+        if (! array_key_exists($this->form['route_name'] ?? '', config('site.routes'))) {
+            $this->form['route_name'] = 'home';
+        }
+        $this->resetValidation(['form.linkable_id', 'form.route_name', 'form.url']);
+    }
+
     public function closeForm(): void
     {
         $this->formOpen = false;
@@ -75,7 +85,7 @@ class Builder extends Component
             'form.title.ar' => [$autoTitle ? 'nullable' : 'required', 'string', 'max:80'],
             'form.title.en' => ['nullable', 'string', 'max:80'],
             'form.type' => ['required', Rule::in(MenuItem::TYPES)],
-            'form.route_name' => [Rule::requiredIf($this->form['type'] === 'route'), 'nullable', Rule::in(array_keys(config('site.routes')))],
+            'form.route_name' => $this->form['type'] === 'route' ? ['required', Rule::in(array_keys(config('site.routes')))] : ['nullable'],
             'form.linkable_id' => [Rule::requiredIf(in_array($this->form['type'], ['page', 'service'], true)), 'nullable', 'integer'],
             'form.url' => [Rule::requiredIf($this->form['type'] === 'url'), 'nullable', 'string', 'max:255'],
             'form.parent_id' => ['nullable', 'exists:menu_items,id', Rule::notIn([(string) $this->editingId])],

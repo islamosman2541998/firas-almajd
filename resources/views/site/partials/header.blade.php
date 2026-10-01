@@ -55,5 +55,8 @@
 <a @class(['active' => $item['active']]) href="{{ $item['url'] ?? '#' }}" @if($item['active']) aria-current="page" @endif @if($item['new_tab']) target="_blank" rel="noopener" @endif>{{ $item['title'] }}</a>
 @endif
 @endforeach
+@if (setting('general.header_button_show'))
+<a class="button button-gold mobile-contact" href="{{ link_url(setting('general.header_button_url')) }}"><span>{{ setting_t('general.header_button_text') }}</span><span class="arrow"><x-site.arrow /></span></a>
+@endif
 </div></nav>
 </header>

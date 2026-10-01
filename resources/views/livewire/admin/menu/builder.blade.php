@@ -61,6 +61,8 @@
                 </div>
                 <small class="a-hint">{{ __('admin.menu.type_hints.'.$form['type']) }}</small>
             </div>
+            {{-- Keyed per type so Livewire builds a fresh field instead of morphing one select into another (which kept the old wire:model binding). --}}
+            <div wire:key="menu-target-{{ $form['type'] }}">
             @if ($form['type'] === 'route')
                 <x-admin.select model="form.route_name" :label="__('admin.menu.target')" :options="$routes" />
             @elseif ($form['type'] === 'service')
@@ -70,6 +72,7 @@
             @elseif ($form['type'] === 'url')
                 <x-admin.input model="form.url" :label="__('admin.common.url')" dir="ltr" placeholder="https://…  /  /path  /  #section" />
             @endif
+            </div>
             <x-admin.t-input model="form.title" :label="__('admin.menu.label')" :hint="in_array($form['type'], ['route', 'page', 'service']) ? __('admin.menu.label_hint') : null" stacked />
             <x-admin.select model="form.parent_id" :label="__('admin.menu.parent')" :options="$parents" :placeholder="__('admin.menu.top_level')" :hint="__('admin.menu.parent_hint')" />
             <x-admin.toggle model="form.new_tab" :label="__('admin.common.new_tab')" />

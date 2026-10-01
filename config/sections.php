@@ -145,6 +145,19 @@ return [
             ],
         ],
 
+        'profile_cta' => [
+            'label' => $l('الملف التعريفي', 'Company profile'),
+            'view' => 'site.sections.profile-cta',
+            'note' => $l('اترك الرابط فارغًا لفتح صفحة "company-profile" تلقائيًا.', 'Leave the link empty to open the "company-profile" page automatically.'),
+            'fields' => [
+                'eyebrow' => ['type' => 'text', 't' => true, 'label' => $l('النص الصغير', 'Eyebrow'), 'default' => $t('تعرّف علينا أكثر', 'GET TO KNOW US')],
+                'title' => ['type' => 'text', 't' => true, 'label' => $l('العنوان', 'Title'), 'default' => $t('الملف التعريفي لشركة فراس المجد', 'Firas Al Majd company profile')],
+                'text' => ['type' => 'textarea', 't' => true, 'label' => $l('النص', 'Text'), 'default' => $t('خدماتنا وأعمالنا وشهاداتنا في ملف واحد، تصفّحه أو حمّله بسهولة', 'Our services, projects and certifications in one file to browse or download')],
+                'button_text' => ['type' => 'text', 't' => true, 'label' => $l('نص الزر', 'Button text'), 'default' => $t('الملف التعريفي', 'Company profile')],
+                'button_url' => ['type' => 'link', 'label' => $l('رابط الزر', 'Button link'), 'default' => ''],
+            ],
+        ],
+
         'charter' => [
             'label' => $l('ما الذي يوجّه عملنا', 'What guides our work'),
             'view' => 'site.sections.charter',
@@ -338,6 +351,7 @@ return [
             'about' => 'about',
             'disciplines' => 'disciplines',
             'partners' => 'partners',
+            'profile' => 'profile_cta',
             'contact' => 'contact',
         ]],
         'about' => ['label' => $l('من نحن', 'About us'), 'route' => 'about', 'sections' => [

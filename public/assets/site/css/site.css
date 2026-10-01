@@ -244,11 +244,11 @@ html main .charter-grid h3{font-weight:800}
 @media(max-width:767px){.detail-scope.section-space{padding-bottom:24px}.related-section.section-space{padding-top:24px;padding-bottom:48px}.related-section .section-heading{margin-bottom:22px}.scope-list>li{padding:15px 0}.detail-grid>div:first-child{position:static}.detail-grid{gap:24px}}
 
 /* Service gallery: main stage + thumbnail strip. */
-.service-gallery{background:#ece9e0;border-top:1px solid #dfd9ca}
-.service-gallery.section-space{padding:64px 0}
-.service-gallery .section-heading{margin-bottom:26px}
+.svc-gallery{background:#ece9e0;border-top:1px solid #dfd9ca}
+.svc-gallery.section-space{padding:64px 0}
+.svc-gallery .section-heading{margin-bottom:26px}
 .sg{max-width:860px}
-.service-gallery .sg{margin-inline:auto}
+.svc-gallery .sg{margin-inline:auto}
 
 /* Paired with the service scope: scope on the start side, gallery on the end side. */
 .scope-gallery{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;align-items:start}
@@ -327,9 +327,9 @@ html[dir=rtl] .sg-prev svg{transform:none}html[dir=rtl] .sg-next svg{transform:s
   .scope-gallery-media{position:static}
 }
 @media(max-width:767px){
-  .service-gallery.section-space{padding:40px 0}
+  .svc-gallery.section-space{padding:40px 0}
   .scope-gallery-copy p{font-size:15px;margin-bottom:22px}
-  .service-gallery .section-heading{margin-bottom:18px}
+  .svc-gallery .section-heading{margin-bottom:18px}
   .sg-stage{border-radius:0;margin-inline:-20px;width:calc(100% + 40px);box-shadow:none}
   .sg-nav{width:38px;height:38px;margin-top:-19px}
   .sg-prev{inset-inline-start:10px}.sg-next{inset-inline-end:10px}
@@ -388,3 +388,41 @@ html[dir=rtl] .sg-prev svg{transform:none}html[dir=rtl] .sg-next svg{transform:s
   .sg-stage{margin-inline:0;width:100%;box-shadow:0 12px 30px rgba(35,31,32,.14)}
   .sg-thumbs{margin-top:16px}
 }
+
+/* Header contact button repeated at the end of the mobile menu. */
+.mobile-nav a.mobile-contact{display:flex;justify-content:center;align-items:center;width:100%;margin:18px 0 22px;padding:13px 20px;border-bottom:0;color:var(--ink);font-size:14px}
+.mobile-nav a.mobile-contact:hover{color:var(--ink)}
+
+/* Home: company profile strip (after partners). */
+.profile-cta{padding:56px 0;background:var(--paper)}
+.profile-cta-card{position:relative;display:flex;align-items:center;justify-content:space-between;gap:40px;padding:34px 44px;background:#fff;border:1px solid var(--line);border-inline-start:3px solid var(--gold)}
+.profile-cta-card:after{content:'';position:absolute;inset-inline-end:-12px;bottom:-12px;width:70px;height:70px;border-bottom:1px solid var(--gold);border-inline-end:1px solid var(--gold);pointer-events:none}
+.profile-cta-copy .eyebrow{margin-bottom:10px}
+.profile-cta-copy h2{font-size:clamp(22px,2vw,30px)!important;margin:0 0 8px;line-height:1.6}
+.profile-cta-copy p{margin:0;color:var(--muted);font-size:14px;line-height:2;max-width:560px}
+.profile-btn{position:relative;flex-shrink:0;display:inline-flex;align-items:center;gap:16px;padding:12px 14px 12px 22px;background:var(--ink);color:var(--gold-light);border:1px solid var(--gold);font-weight:700;font-size:15px;overflow:hidden;isolation:isolate;transition:color .35s,box-shadow .35s,transform .35s}
+html[dir=rtl] .profile-btn{padding:12px 22px 12px 14px}
+.profile-btn:before{content:'';position:absolute;inset:0;background:var(--gold);z-index:-1;transform:scaleX(0);transform-origin:var(--sweep-from,left);transition:transform .45s cubic-bezier(.6,0,.2,1)}
+html[dir=rtl] .profile-btn:before{--sweep-from:right}
+.profile-btn:hover{color:var(--ink);transform:translateY(-3px);box-shadow:0 14px 30px rgba(35,31,32,.22)}
+.profile-btn:hover:before{transform:scaleX(1)}
+.profile-btn-icon{width:42px;height:42px;display:grid;place-items:center;border:1px solid #c9a32d80;border-radius:50%;transition:border-color .35s}
+.profile-btn:hover .profile-btn-icon{border-color:var(--ink)}
+.profile-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.profile-btn-arrow{display:grid;place-items:center;transition:transform .35s}
+html[dir=rtl] .profile-btn-arrow svg{transform:scaleX(-1)}
+.profile-btn:hover .profile-btn-arrow{transform:translateX(4px)}
+html[dir=rtl] .profile-btn:hover .profile-btn-arrow{transform:translateX(-4px)}
+@media(max-width:767px){
+  .profile-cta{padding:36px 0}
+  .profile-cta-card{flex-direction:column;align-items:flex-start;gap:22px;padding:24px 20px}
+  .profile-cta-card:after{inset-inline-end:-8px;bottom:-8px;width:48px;height:48px}
+  .profile-btn{width:100%;justify-content:space-between}
+  .profile-btn-text{flex:1}
+}
+
+/* Custom pages without the intro banner: tighter spacing between text, gallery and files. */
+body[data-page=page] main>section.section-space:first-of-type{padding-top:64px}
+body[data-page=page] .custom-page-body.section-space{padding-bottom:0}
+body[data-page=page] .custom-page-body+.page-gallery.section-space,body[data-page=page] .custom-page-body+.page-files.section-space{padding-top:48px}
+@media(max-width:767px){body[data-page=page] main>section.section-space:first-of-type{padding-top:40px}body[data-page=page] .custom-page-body+.page-gallery.section-space,body[data-page=page] .custom-page-body+.page-files.section-space{padding-top:32px}}
