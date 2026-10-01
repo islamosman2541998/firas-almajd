@@ -11,8 +11,8 @@
                     x-on:livewire-upload-start="up = true" x-on:livewire-upload-finish="up = false" x-on:livewire-upload-error="up = false" x-on:livewire-upload-progress="p = $event.detail.progress">
                     <i class="bi bi-cloud-arrow-up"></i>
                     <strong>{{ __('admin.media.drop') }}</strong>
-                    <span>{{ __('admin.media.types') }}</span>
-                    <input type="file" multiple wire:model="uploads" accept="image/*,video/mp4,video/webm,application/pdf">
+                    <span>{{ $allowPdf ? __('admin.media.types') : __('admin.media.types_visual') }}</span>
+                    <input type="file" multiple wire:model="uploads" accept="image/*,video/mp4,video/webm{{ $allowPdf ? ',application/pdf' : '' }}">
                     <div class="a-progress w-100" x-show="up" x-cloak><span :style="`width:${p}%`"></span></div>
                 </label>
                 @error('uploads.*')<div class="a-error">{{ $message }}</div>@enderror

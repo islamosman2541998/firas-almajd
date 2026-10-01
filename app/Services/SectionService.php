@@ -55,8 +55,16 @@ class SectionService
                 $layout[$row['key']] = ['key' => $row['key'], 'enabled' => (bool) ($row['enabled'] ?? true)];
             }
         }
-        foreach ($keys as $key) {
-            $layout[$key] ??= ['key' => $key, 'enabled' => true];
+        // Sections added after the order was saved go right after their config predecessor.
+        foreach ($keys as $i => $key) {
+            if (isset($layout[$key])) {
+                continue;
+            }
+            $row = [$key => ['key' => $key, 'enabled' => true]];
+            $after = $i > 0 ? array_search($keys[$i - 1], array_keys($layout), true) : -1;
+            $layout = $after === false
+                ? $layout + $row
+                : array_slice($layout, 0, $after + 1, true) + $row + array_slice($layout, $after + 1, null, true);
         }
 
         return array_values($layout);

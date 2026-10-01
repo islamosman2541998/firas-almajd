@@ -24,7 +24,7 @@ class ServiceController extends Controller
     {
         abort_unless($service->is_active, 404);
 
-        $service->load(['seo', 'related' => fn ($query) => $query->active()]);
+        $service->load(['seo', 'gallery', 'related' => fn ($query) => $query->active()]);
 
         $seo->forModel($service->seo, $service->title, $service->short_description, $service->image)
             ->set('type', 'article')

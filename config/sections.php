@@ -297,6 +297,16 @@ return [
             ],
         ],
 
+        'service_gallery' => [
+            'label' => $l('معرض الخدمة', 'Service gallery'),
+            'view' => 'site.sections.service-gallery',
+            'note' => $l('الصور والفيديوهات تُضاف من تبويب المعرض في صفحة كل خدمة.', 'Images and videos are added from the Gallery tab of each service.'),
+            'fields' => [
+                'eyebrow' => ['type' => 'text', 't' => true, 'label' => $l('النص الصغير', 'Eyebrow'), 'default' => $t('من أعمالنا', 'FROM OUR WORK')],
+                'title' => ['type' => 'text', 't' => true, 'label' => $l('العنوان', 'Title'), 'default' => $t('معرض الخدمة', 'Service gallery')],
+            ],
+        ],
+
         'service_related' => [
             'label' => $l('خدمات مرتبطة', 'Related services'),
             'view' => 'site.sections.service-related',
@@ -344,6 +354,7 @@ return [
         ]],
         'service' => ['label' => $l('صفحة الخدمة', 'Service page'), 'route' => null, 'sections' => [
             'scope' => 'service_scope',
+            'gallery' => 'service_gallery',
             'related' => 'service_related',
             'cta' => 'cta',
         ]],

@@ -134,7 +134,8 @@ return [
     'services' => [
         'subtitle' => 'Services appear on the home page, the services page, the menu and the contact form',
         'create' => 'Add service', 'edit' => 'Edit service', 'page_sections' => 'Service page texts',
-        'tabs' => ['content' => 'Content', 'scope' => 'Service scope', 'related' => 'Related services', 'seo' => 'SEO'],
+        'tabs' => ['content' => 'Content', 'scope' => 'Service scope', 'gallery' => 'Gallery', 'related' => 'Related services', 'seo' => 'SEO'],
+        'save_first' => 'Save the service first, then add images and videos',
         'short_hint' => 'Shown on the service card and at the top of the service page',
         'image_hint' => 'Card image, ideally 1500×1000',
         'scope_items' => 'Service scope items', 'scope_hint' => 'Shown on the service page and in the services accordion',
@@ -157,7 +158,7 @@ return [
 
     'media' => [
         'title' => 'Gallery & files', 'hint' => 'Drag items to reorder them',
-        'drop' => 'Drop files here or click to choose', 'types' => 'Images, MP4 videos, PDF files — several at once',
+        'drop' => 'Drop files here or click to choose', 'types' => 'Images, MP4 videos, PDF files — several at once', 'types_visual' => 'Images and MP4 videos — several at once, or add a YouTube link',
         'embed_url' => 'YouTube or Vimeo link', 'embed_hint' => 'Played on the site without uploading the video',
         'added' => ':count file(s) added', 'empty' => 'No media yet', 'edit' => 'Edit item', 'file' => 'File',
         'layout' => 'Display shape', 'layout_hint' => 'Wide or tall items vary the gallery grid, as in the design',

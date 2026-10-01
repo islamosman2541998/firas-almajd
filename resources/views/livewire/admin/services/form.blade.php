@@ -1,3 +1,4 @@
+<div>
 <form wire:submit="save">
     <x-admin.page-head :title="$service ? $service->title : __('admin.services.create')" :back="route('admin.services.index')">
         <x-slot:actions>
@@ -7,7 +8,7 @@
     </x-admin.page-head>
 
     <div class="a-tabs">
-        @foreach (['content' => 'bi-card-text', 'scope' => 'bi-list-check', 'related' => 'bi-diagram-3', 'seo' => 'bi-search'] as $key => $icon)
+        @foreach (['content' => 'bi-card-text', 'scope' => 'bi-list-check', 'gallery' => 'bi-images', 'related' => 'bi-diagram-3', 'seo' => 'bi-search'] as $key => $icon)
             <button type="button" @class(['is-active' => $tab === $key]) wire:click="$set('tab', '{{ $key }}')"><i class="bi {{ $icon }}"></i> {{ __('admin.services.tabs.'.$key) }}</button>
         @endforeach
     </div>
@@ -30,6 +31,10 @@
                     <x-admin.list-items path="form.scope_items" :label="__('admin.services.scope_items')" :hint="__('admin.services.scope_hint')" />
                 </div>
             </div>
+
+            @if ($tab === 'gallery' && ! $service)
+                <div class="a-card"><div class="a-card-body"><div class="a-note"><i class="bi bi-info-circle"></i><span>{{ __('admin.services.save_first') }}</span></div></div></div>
+            @endif
 
             <div class="a-card" @if($tab !== 'related') hidden @endif>
                 <div class="a-card-head"><div><h2>{{ __('admin.services.related') }}</h2><p>{{ __('admin.services.related_hint') }}</p></div></div>
@@ -78,3 +83,9 @@
         </aside>
     </div>
 </form>
+@if ($service)
+    <div @if($tab !== 'gallery') hidden @endif class="mt-3">
+        <livewire:admin.media.manager owner-type="service" :owner-id="$service->id" :allow-pdf="false" :key="'media-service-'.$service->id" />
+    </div>
+@endif
+</div>
