@@ -13,7 +13,7 @@ class General extends SettingsPage
 
     protected function translatable(): array
     {
-        return ['site_name', 'company_name', 'tagline', 'logo_alt', 'address', 'header_button_text', 'footer_social_title', 'copyright', 'whatsapp_contact_template', 'whatsapp_career_template'];
+        return ['site_name', 'company_name', 'tagline', 'logo_alt', 'address', 'header_button_text', 'footer_social_title', 'copyright', 'whatsapp_contact_template', 'whatsapp_career_template', 'whatsapp_float_message'];
     }
 
     protected function images(): array
@@ -46,6 +46,9 @@ class General extends SettingsPage
             'data.phone' => ['nullable', 'string', 'max:30'],
             'data.phone_display' => ['nullable', 'string', 'max:30'],
             'data.whatsapp' => ['nullable', 'string', 'max:30'],
+            'data.whatsapp_float_show' => ['boolean'],
+            'data.whatsapp_float_side' => ['required', 'in:right,left'],
+            'data.whatsapp_float_message.*' => ['nullable', 'string', 'max:500'],
             'data.email_primary' => ['nullable', 'email', 'max:190'],
             'data.email_secondary' => ['nullable', 'email', 'max:190'],
             'data.notify_email' => ['nullable', 'email', 'max:190'],

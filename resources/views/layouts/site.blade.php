@@ -38,6 +38,9 @@
 @yield('content')
 </main>
 @include('site.partials.footer')
+@if (setting('general.whatsapp_float_show') && setting('general.whatsapp'))
+<a aria-label="WhatsApp" class="wa-float wa-float-{{ setting('general.whatsapp_float_side') === 'left' ? 'left' : 'right' }}" href="{{ wa_url(setting_t('general.whatsapp_float_message') ?: null) }}" rel="noopener noreferrer" target="_blank" title="WhatsApp"><i aria-hidden="true" class="fa-brands fa-whatsapp"></i></a>
+@endif
 <script src="{{ asset_v('vendor/bootstrap/bootstrap.bundle.min.js') }}" defer></script>
 @stack('vendor-scripts')
 <script src="{{ asset_v('assets/site/js/app.js') }}" defer></script>
