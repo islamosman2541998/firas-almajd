@@ -28,8 +28,6 @@
             <div class="a-card" @if($tab !== 'scope') hidden @endif>
                 <div class="a-card-body">
                     <x-admin.list-items path="form.scope_items" :label="__('admin.services.scope_items')" :hint="__('admin.services.scope_hint')" />
-                    <hr class="my-4">
-                    <x-admin.list-items path="form.prep_items" :label="__('admin.services.prep_items')" :hint="__('admin.services.prep_hint')" />
                 </div>
             </div>
 

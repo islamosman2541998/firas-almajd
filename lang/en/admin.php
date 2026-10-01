@@ -134,7 +134,7 @@ return [
     'services' => [
         'subtitle' => 'Services appear on the home page, the services page, the menu and the contact form',
         'create' => 'Add service', 'edit' => 'Edit service', 'page_sections' => 'Service page texts',
-        'tabs' => ['content' => 'Content', 'scope' => 'Scope & preparation', 'related' => 'Related services', 'seo' => 'SEO'],
+        'tabs' => ['content' => 'Content', 'scope' => 'Service scope', 'related' => 'Related services', 'seo' => 'SEO'],
         'short_hint' => 'Shown on the service card and at the top of the service page',
         'image_hint' => 'Card image, ideally 1500×1000',
         'scope_items' => 'Service scope items', 'scope_hint' => 'Shown on the service page and in the services accordion',

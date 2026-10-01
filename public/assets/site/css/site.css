@@ -232,3 +232,13 @@ html main .charter-grid h3{font-weight:800}
 @keyframes wa-pulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.6);opacity:0}}
 @media(max-width:767px){.wa-float{width:52px;height:52px;font-size:28px;bottom:16px}.wa-float-right{right:16px}.wa-float-left{left:16px}}
 @media(prefers-reduced-motion:reduce){.wa-float:before{animation:none}}
+
+/* Service page: tighter rhythm between scope and related services. */
+.detail-scope.section-space{padding-bottom:40px}
+.related-section.section-space{padding-top:40px;padding-bottom:80px}
+.detail-grid>div:first-child>p{margin-bottom:0}
+.related-section .section-heading{margin-bottom:32px}
+.scope-list>li{padding:18px 0}
+.detail-grid>div:first-child{position:sticky;top:150px}
+@media(max-width:1199px){.detail-scope.section-space{padding-bottom:32px}.related-section.section-space{padding-top:32px;padding-bottom:64px}}
+@media(max-width:767px){.detail-scope.section-space{padding-bottom:24px}.related-section.section-space{padding-top:24px;padding-bottom:48px}.related-section .section-heading{margin-bottom:22px}.scope-list>li{padding:15px 0}.detail-grid>div:first-child{position:static}.detail-grid{gap:24px}}

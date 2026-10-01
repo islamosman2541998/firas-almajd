@@ -297,18 +297,6 @@ return [
             ],
         ],
 
-        'service_prep' => [
-            'label' => $l('خطوتك الأولى', 'Your first step'),
-            'view' => 'site.sections.service-prep',
-            'note' => $l('البنود من صفحة الخدمة نفسها.', 'Items come from each service.'),
-            'fields' => [
-                'eyebrow' => ['type' => 'text', 't' => true, 'label' => $l('النص الصغير', 'Eyebrow'), 'default' => $t('خطوتك الأولى', 'YOUR FIRST STEP')],
-                'title' => ['type' => 'textarea', 't' => true, 'label' => $l('العنوان', 'Title'), 'default' => $t("ما الذي يساعدنا\nعلى فهم طلبك؟", "What helps us\nunderstand your request?")],
-                'text' => ['type' => 'textarea', 't' => true, 'label' => $l('النص', 'Text'), 'default' => $t('ابدأ بالمعلومات المتاحة ونكمل التفاصيل معًا', 'Start with what you have and we will complete the details together')],
-                'link_text' => ['type' => 'text', 't' => true, 'label' => $l('نص الرابط', 'Link text'), 'default' => $t('ابدأ من هنا', 'Start the conversation')],
-            ],
-        ],
-
         'service_related' => [
             'label' => $l('خدمات مرتبطة', 'Related services'),
             'view' => 'site.sections.service-related',
@@ -356,7 +344,6 @@ return [
         ]],
         'service' => ['label' => $l('صفحة الخدمة', 'Service page'), 'route' => null, 'sections' => [
             'scope' => 'service_scope',
-            'prep' => 'service_prep',
             'related' => 'service_related',
             'cta' => 'cta',
         ]],
