@@ -365,3 +365,26 @@ html[dir=rtl] .sg-prev svg{transform:none}html[dir=rtl] .sg-next svg{transform:s
 .contact .contact-details .cd-icon{color:var(--ink);margin:0;font-size:0}
 .contact .contact-details a.cd-item:hover .cd-icon,.contact .contact-details .contact-emails.cd-item:hover .cd-icon{background:var(--ink);color:var(--gold-light)}
 @media(max-width:767px){.contact-details .cd-item{grid-template-columns:40px minmax(0,1fr);column-gap:12px}.cd-icon{width:40px;height:40px}.cd-icon svg{width:18px;height:18px}}
+
+/* Service gallery: natural-size media + gold corners like the About image. */
+.sg-frame{position:relative;isolation:isolate;margin:17px}
+.sg-frame:before,.sg-corner{content:'';position:absolute;width:90px;height:90px;z-index:-1;pointer-events:none}
+.sg-frame:before{top:-17px;inset-inline-start:-17px;border-top:1px solid var(--gold);border-inline-start:1px solid var(--gold)}
+.sg-corner{bottom:-17px;inset-inline-end:-17px;border-bottom:1px solid var(--gold);border-inline-end:1px solid var(--gold)}
+.sg-stage{aspect-ratio:auto;border-radius:0}
+.sg-slide.is-active{position:relative}
+.sg-slide>img{height:auto;max-height:none;object-fit:initial}
+.sg-slide.is-active>img{animation:none}
+.sg-video,.sg-embed{position:relative;inset:auto}
+.sg-video{min-height:220px}
+.sg-video video{height:auto;max-height:80svh}
+.sg-embed{aspect-ratio:16/9}
+.sg-thumbs{margin-top:22px}
+@media(max-width:767px){
+  .sg-frame{margin:12px}
+  .sg-frame:before,.sg-corner{width:60px;height:60px}
+  .sg-frame:before{top:-12px;inset-inline-start:-12px}
+  .sg-corner{bottom:-12px;inset-inline-end:-12px}
+  .sg-stage{margin-inline:0;width:100%;box-shadow:0 12px 30px rgba(35,31,32,.14)}
+  .sg-thumbs{margin-top:16px}
+}

@@ -3,12 +3,11 @@
     $total = $items->count();
 @endphp
 <div class="sg reveal" data-sg>
-<div class="sg-stage">
+<div class="sg-frame"><div class="sg-stage">
 @foreach ($items as $i => $item)
 <figure @class(['sg-slide', 'is-active' => $i === 0]) data-sg-slide aria-hidden="{{ $i === 0 ? 'false' : 'true' }}">
 @if ($item->type === 'image')
 <img alt="{{ $item->title ?: $service->title }}" @if ($i > 0) loading="lazy" @endif src="{{ $item->fileUrl() }}"/>
-<button aria-label="{{ __('site.enlarge') }}" class="sg-zoom" data-gallery-alt="{{ $item->title }}" data-gallery-src="{{ $item->fileUrl() }}" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
 @elseif ($item->type === 'video')
 <div class="sg-video" data-sg-video>
 <video playsinline preload="metadata" @if ($item->poster) poster="{{ media_url($item->poster) }}" @endif src="{{ $item->fileUrl() }}{{ $item->poster ? '' : '#t=0.5' }}"></video>
@@ -33,7 +32,7 @@
 <button aria-label="{{ __('site.next') }}" class="sg-nav sg-next" data-sg-next type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
 <span class="sg-count"><bdi dir="ltr"><b data-sg-current>01</b> / {{ str_pad($total, 2, '0', STR_PAD_LEFT) }}</bdi></span>
 @endif
-</div>
+</div><span aria-hidden="true" class="sg-corner"></span></div>
 @if ($total > 1)
 <div class="sg-thumbs" role="tablist">
 @foreach ($items as $i => $item)
@@ -44,4 +43,3 @@
 </div>
 @endif
 </div>
-<dialog class="gallery-lightbox" id="galleryLightbox"><button aria-label="{{ __('site.gallery_close') }}" class="gallery-close" type="button">×</button><img alt="" id="galleryLightboxImage" src="data:image/gif;base64,R0lGODlhAQABAAAAACw="/><div class="lightbox-video" id="galleryLightboxVideo"></div></dialog>
