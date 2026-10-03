@@ -134,7 +134,8 @@ return [
     'services' => [
         'subtitle' => 'Services appear on the home page, the services page, the menu and the contact form',
         'create' => 'Add service', 'edit' => 'Edit service', 'page_sections' => 'Service page texts',
-        'tabs' => ['content' => 'Content', 'scope' => 'Scope & preparation', 'related' => 'Related services', 'seo' => 'SEO'],
+        'tabs' => ['content' => 'Content', 'scope' => 'Service scope', 'gallery' => 'Gallery', 'related' => 'Related services', 'seo' => 'SEO'],
+        'save_first' => 'Save the service first, then add images and videos',
         'short_hint' => 'Shown on the service card and at the top of the service page',
         'image_hint' => 'Card image, ideally 1500×1000',
         'scope_items' => 'Service scope items', 'scope_hint' => 'Shown on the service page and in the services accordion',
@@ -157,7 +158,7 @@ return [
 
     'media' => [
         'title' => 'Gallery & files', 'hint' => 'Drag items to reorder them',
-        'drop' => 'Drop files here or click to choose', 'types' => 'Images, MP4 videos, PDF files — several at once',
+        'drop' => 'Drop files here or click to choose', 'types' => 'Images, MP4 videos, PDF files — several at once', 'types_visual' => 'Images and MP4 videos — several at once, or add a YouTube link',
         'embed_url' => 'YouTube or Vimeo link', 'embed_hint' => 'Played on the site without uploading the video',
         'added' => ':count file(s) added', 'empty' => 'No media yet', 'edit' => 'Edit item', 'file' => 'File',
         'layout' => 'Display shape', 'layout_hint' => 'Wide or tall items vary the gallery grid, as in the design',
@@ -253,6 +254,9 @@ return [
         'notify_email' => 'Notification email', 'notify_email_hint' => 'Optional; requires mail settings in .env',
         'logos' => 'Logos & icon', 'logo' => 'Site logo', 'logo_hint' => 'PNG or SVG, kept at original quality',
         'footer_logo' => 'Footer logo', 'favicon' => 'Browser icon (favicon)', 'favicon_hint' => 'Square 512×512 PNG; also shown in Google results',
+        'whatsapp_float' => 'Floating WhatsApp button', 'whatsapp_float_hint' => 'A fixed button at the bottom of every page that opens a chat with the WhatsApp number above',
+        'whatsapp_float_side' => 'Button position', 'side_right' => 'Right side', 'side_left' => 'Left side',
+        'whatsapp_float_message' => 'Pre-filled message (optional)', 'whatsapp_float_message_hint' => 'Text typed into the chat automatically when the button is clicked',
         'loader_enabled' => 'Home loading screen', 'loader_hint' => 'Shown briefly when the home page opens', 'loader_logo' => 'Loading screen logo',
         'footer' => 'Footer', 'social_title' => 'Social heading', 'copyright' => 'Copyright text',
         'social' => 'Social accounts', 'social_hint' => 'An icon without a URL shows without a link, as in the design; switch it off to hide it',

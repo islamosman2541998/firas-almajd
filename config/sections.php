@@ -145,6 +145,19 @@ return [
             ],
         ],
 
+        'profile_cta' => [
+            'label' => $l('الملف التعريفي', 'Company profile'),
+            'view' => 'site.sections.profile-cta',
+            'note' => $l('اترك الرابط فارغًا لفتح صفحة "company-profile" تلقائيًا.', 'Leave the link empty to open the "company-profile" page automatically.'),
+            'fields' => [
+                'eyebrow' => ['type' => 'text', 't' => true, 'label' => $l('النص الصغير', 'Eyebrow'), 'default' => $t('تعرّف علينا أكثر', 'GET TO KNOW US')],
+                'title' => ['type' => 'text', 't' => true, 'label' => $l('العنوان', 'Title'), 'default' => $t('الملف التعريفي لشركة فراس المجد', 'Firas Al Majd company profile')],
+                'text' => ['type' => 'textarea', 't' => true, 'label' => $l('النص', 'Text'), 'default' => $t('خدماتنا وأعمالنا وشهاداتنا في ملف واحد، تصفّحه أو حمّله بسهولة', 'Our services, projects and certifications in one file to browse or download')],
+                'button_text' => ['type' => 'text', 't' => true, 'label' => $l('نص الزر', 'Button text'), 'default' => $t('الملف التعريفي', 'Company profile')],
+                'button_url' => ['type' => 'link', 'label' => $l('رابط الزر', 'Button link'), 'default' => ''],
+            ],
+        ],
+
         'charter' => [
             'label' => $l('ما الذي يوجّه عملنا', 'What guides our work'),
             'view' => 'site.sections.charter',
@@ -297,15 +310,13 @@ return [
             ],
         ],
 
-        'service_prep' => [
-            'label' => $l('خطوتك الأولى', 'Your first step'),
-            'view' => 'site.sections.service-prep',
-            'note' => $l('البنود من صفحة الخدمة نفسها.', 'Items come from each service.'),
+        'service_gallery' => [
+            'label' => $l('معرض الخدمة', 'Service gallery'),
+            'view' => 'site.sections.service-gallery',
+            'note' => $l('الصور والفيديوهات تُضاف من تبويب المعرض في صفحة كل خدمة.', 'Images and videos are added from the Gallery tab of each service.'),
             'fields' => [
-                'eyebrow' => ['type' => 'text', 't' => true, 'label' => $l('النص الصغير', 'Eyebrow'), 'default' => $t('خطوتك الأولى', 'YOUR FIRST STEP')],
-                'title' => ['type' => 'textarea', 't' => true, 'label' => $l('العنوان', 'Title'), 'default' => $t("ما الذي يساعدنا\nعلى فهم طلبك؟", "What helps us\nunderstand your request?")],
-                'text' => ['type' => 'textarea', 't' => true, 'label' => $l('النص', 'Text'), 'default' => $t('ابدأ بالمعلومات المتاحة ونكمل التفاصيل معًا', 'Start with what you have and we will complete the details together')],
-                'link_text' => ['type' => 'text', 't' => true, 'label' => $l('نص الرابط', 'Link text'), 'default' => $t('ابدأ من هنا', 'Start the conversation')],
+                'eyebrow' => ['type' => 'text', 't' => true, 'label' => $l('النص الصغير', 'Eyebrow'), 'default' => $t('من أعمالنا', 'FROM OUR WORK')],
+                'title' => ['type' => 'text', 't' => true, 'label' => $l('العنوان', 'Title'), 'default' => $t('معرض الخدمة', 'Service gallery')],
             ],
         ],
 
@@ -340,6 +351,7 @@ return [
             'about' => 'about',
             'disciplines' => 'disciplines',
             'partners' => 'partners',
+            'profile' => 'profile_cta',
             'contact' => 'contact',
         ]],
         'about' => ['label' => $l('من نحن', 'About us'), 'route' => 'about', 'sections' => [
@@ -356,7 +368,7 @@ return [
         ]],
         'service' => ['label' => $l('صفحة الخدمة', 'Service page'), 'route' => null, 'sections' => [
             'scope' => 'service_scope',
-            'prep' => 'service_prep',
+            'gallery' => 'service_gallery',
             'related' => 'service_related',
             'cta' => 'cta',
         ]],

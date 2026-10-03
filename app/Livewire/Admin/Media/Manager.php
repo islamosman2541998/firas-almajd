@@ -28,6 +28,9 @@ class Manager extends Component
     #[Locked]
     public string $collection = 'gallery';
 
+    #[Locked]
+    public bool $allowPdf = true;
+
     public array $uploads = [];
 
     public string $embedUrl = '';
@@ -38,11 +41,12 @@ class Manager extends Component
 
     public $poster = null;
 
-    public function mount(string $ownerType, int $ownerId, string $collection = 'gallery'): void
+    public function mount(string $ownerType, int $ownerId, string $collection = 'gallery', bool $allowPdf = true): void
     {
         $this->ownerType = $ownerType;
         $this->ownerId = $ownerId;
         $this->collection = $collection;
+        $this->allowPdf = $allowPdf;
     }
 
     protected function owner()
@@ -55,7 +59,7 @@ class Manager extends Component
         $kb = config('site.uploads');
         $this->validate([
             'uploads' => ['array', 'max:30'],
-            'uploads.*' => ['file', 'mimetypes:image/jpeg,image/png,image/webp,image/gif,image/svg+xml,video/mp4,video/webm,application/pdf', 'max:'.$kb['video_max_kb']],
+            'uploads.*' => ['file', 'mimetypes:image/jpeg,image/png,image/webp,image/gif,image/svg+xml,video/mp4,video/webm'.($this->allowPdf ? ',application/pdf' : ''), 'max:'.$kb['video_max_kb']],
         ], [], ['uploads.*' => __('admin.media.file')]);
 
         $uploader = app(MediaUploader::class);

@@ -42,6 +42,13 @@
                     <x-admin.link model="data.header_button_url" :label="__('admin.settings.button_link')" :options="$linkOptions" />
                 </div>
             </div>
+            <div class="a-card" id="whatsapp-float">
+                <div class="a-card-head"><div><h2>{{ __('admin.settings.whatsapp_float') }}</h2><p>{{ __('admin.settings.whatsapp_float_hint') }}</p></div><x-admin.toggle model="data.whatsapp_float_show" :label="__('admin.common.show')" /></div>
+                <div class="a-card-body">
+                    <x-admin.select model="data.whatsapp_float_side" :label="__('admin.settings.whatsapp_float_side')" :options="['right' => __('admin.settings.side_right'), 'left' => __('admin.settings.side_left')]" />
+                    <x-admin.t-input model="data.whatsapp_float_message" :label="__('admin.settings.whatsapp_float_message')" :hint="__('admin.settings.whatsapp_float_message_hint')" textarea rows="2" />
+                </div>
+            </div>
             <div class="a-card">
                 <div class="a-card-head"><div><h2>{{ __('admin.settings.whatsapp_templates') }}</h2><p>{{ __('admin.settings.whatsapp_templates_hint') }}</p></div></div>
                 <div class="a-card-body">

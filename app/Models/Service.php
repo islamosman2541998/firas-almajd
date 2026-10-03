@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\FlushesSiteCache;
+use App\Models\Concerns\HasMedia;
 use App\Models\Concerns\HasSeo;
 use App\Models\Concerns\Sortable;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Service extends Model
 {
-    use FlushesSiteCache, HasSeo, HasTranslations, Sortable;
+    use FlushesSiteCache, HasMedia, HasSeo, HasTranslations, Sortable;
 
     protected $fillable = ['slug', 'title', 'short_description', 'image', 'scope_items', 'prep_items', 'show_on_home', 'is_active', 'sort_order'];
 

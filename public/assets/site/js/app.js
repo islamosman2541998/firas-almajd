@@ -31,6 +31,7 @@
     initProgress();
     initHeroSlider();
     initPartners();
+    initServiceGallery();
     initGallery();
     initCertificates();
     initPdfViewer();
@@ -243,6 +244,134 @@
     if ('ResizeObserver' in window) new ResizeObserver(updateDots).observe(slider);
     updatePause();
     updateDots();
+  }
+
+  /* ---------- Service gallery (main stage + thumbnails) ---------- */
+  function initServiceGallery() {
+    document.querySelectorAll('[data-sg]').forEach(root => {
+      const slides = [...root.querySelectorAll('[data-sg-slide]')];
+      const thumbs = [...root.querySelectorAll('[data-sg-thumb]')];
+      const current = root.querySelector('[data-sg-current]');
+      const stage = root.querySelector('.sg-stage');
+      const rtl = document.documentElement.dir === 'rtl';
+      let index = 0;
+
+      root.querySelectorAll('[data-sg-video]').forEach(initVideoPlayer);
+
+      const stopMedia = slide => {
+        slide.querySelector('video')?.pause();
+        const embed = slide.querySelector('[data-sg-embed]');
+        if (embed?.querySelector('iframe')) { embed.querySelector('iframe').remove(); embed.classList.remove('is-playing'); }
+      };
+
+      const show = next => {
+        next = (next + slides.length) % slides.length;
+        if (next === index) return;
+        stopMedia(slides[index]);
+        slides.forEach((slide, i) => { slide.classList.toggle('is-active', i === next); slide.setAttribute('aria-hidden', i === next ? 'false' : 'true'); });
+        thumbs.forEach((thumb, i) => { thumb.classList.toggle('is-active', i === next); thumb.setAttribute('aria-selected', i === next ? 'true' : 'false'); });
+        thumbs[next]?.scrollIntoView({block: 'nearest', inline: 'center', behavior: 'smooth'});
+        if (current) current.textContent = String(next + 1).padStart(2, '0');
+        index = next;
+      };
+
+      thumbs.forEach((thumb, i) => thumb.addEventListener('click', () => show(i)));
+      root.querySelector('[data-sg-prev]')?.addEventListener('click', () => show(index - 1));
+      root.querySelector('[data-sg-next]')?.addEventListener('click', () => show(index + 1));
+
+      root.querySelectorAll('[data-sg-embed]').forEach(embed => embed.querySelector('.sg-play')?.addEventListener('click', () => {
+        const frame = document.createElement('iframe');
+        frame.src = embed.dataset.sgEmbed + (embed.dataset.sgEmbed.includes('?') ? '&' : '?') + 'autoplay=1';
+        frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        frame.allowFullscreen = true;
+        frame.title = 'Video';
+        embed.append(frame);
+        embed.classList.add('is-playing');
+      }));
+
+      root.addEventListener('keydown', event => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        if (event.target.closest('video, .sg-controls')) return;
+        const forward = (event.key === 'ArrowRight') !== rtl;
+        show(index + (forward ? 1 : -1));
+      });
+
+      // Swipe on touch screens (ignored while a video is being scrubbed).
+      let startX = null, startY = null;
+      stage.addEventListener('touchstart', event => {
+        if (event.target.closest('video, iframe, .sg-controls')) return;
+        startX = event.touches[0].clientX; startY = event.touches[0].clientY;
+      }, {passive: true});
+      stage.addEventListener('touchend', event => {
+        if (startX === null || slides.length < 2) return;
+        const dx = event.changedTouches[0].clientX - startX, dy = event.changedTouches[0].clientY - startY;
+        startX = null;
+        if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return;
+        show(index + ((dx < 0) !== rtl ? 1 : -1));
+      });
+    });
+  }
+
+  /* Custom controls for a gallery video (play, seek, time, mute, full screen). */
+  function initVideoPlayer(box) {
+    const video = box.querySelector('video');
+    const progress = box.querySelector('[data-v-progress]');
+    const fill = box.querySelector('[data-v-fill]');
+    const buffer = box.querySelector('[data-v-buffer]');
+    const time = box.querySelector('[data-v-time]');
+    const duration = box.querySelector('[data-v-duration]');
+    const format = s => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+    let hideTimer;
+
+    const toggle = () => { video.paused || video.ended ? video.play() : video.pause(); };
+    const wake = () => {
+      box.classList.add('is-awake');
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => { if (!video.paused) box.classList.remove('is-awake'); }, 2200);
+    };
+    const seekTo = clientX => {
+      const r = progress.getBoundingClientRect();
+      if (video.duration) video.currentTime = Math.min(1, Math.max(0, (clientX - r.left) / r.width)) * video.duration;
+    };
+
+    box.querySelectorAll('[data-v-toggle]').forEach(button => button.addEventListener('click', event => { event.stopPropagation(); toggle(); }));
+    video.addEventListener('click', () => { if (matchMedia('(hover: hover)').matches) toggle(); else wake(); });
+    video.addEventListener('play', () => { box.classList.add('is-playing'); box.classList.add('is-started'); wake(); });
+    video.addEventListener('pause', () => { box.classList.remove('is-playing'); box.classList.add('is-awake'); });
+    video.addEventListener('ended', () => { box.classList.remove('is-playing'); box.classList.add('is-awake'); });
+    video.addEventListener('loadedmetadata', () => { duration.textContent = format(video.duration); });
+    video.addEventListener('timeupdate', () => {
+      const pct = video.duration ? video.currentTime / video.duration * 100 : 0;
+      fill.style.width = pct + '%';
+      progress.setAttribute('aria-valuenow', Math.round(pct));
+      time.textContent = format(video.currentTime);
+    });
+    video.addEventListener('progress', () => {
+      if (video.duration && video.buffered.length) buffer.style.width = video.buffered.end(video.buffered.length - 1) / video.duration * 100 + '%';
+    });
+    box.addEventListener('pointermove', wake);
+    box.addEventListener('touchstart', wake, {passive: true});
+
+    let dragging = false;
+    progress.addEventListener('pointerdown', event => { dragging = true; progress.setPointerCapture(event.pointerId); seekTo(event.clientX); });
+    progress.addEventListener('pointermove', event => { if (dragging) seekTo(event.clientX); });
+    progress.addEventListener('pointerup', () => { dragging = false; });
+    progress.addEventListener('keydown', event => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault(); event.stopPropagation();
+        video.currentTime += event.key === 'ArrowRight' ? 5 : -5;
+      }
+    });
+
+    const mute = box.querySelector('[data-v-mute]');
+    mute.addEventListener('click', () => { video.muted = !video.muted; box.classList.toggle('is-muted', video.muted); });
+
+    box.querySelector('[data-v-fs]').addEventListener('click', () => {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else if (box.requestFullscreen) box.requestFullscreen();
+      else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen(); // iOS Safari
+    });
+    document.addEventListener('fullscreenchange', () => box.classList.toggle('is-fullscreen', document.fullscreenElement === box));
   }
 
   /* ---------- Gallery lightbox (images + videos) ---------- */
