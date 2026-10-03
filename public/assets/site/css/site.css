@@ -223,3 +223,9 @@ html main .charter-grid h3{font-weight:800}
 /* Contact page (form side): form only, centred. */
 .contact-form-center{max-width:760px;margin-inline:auto}
 @media(max-width:767px){.contact-form-only.section-space{padding:40px 0}}
+
+/* Static images: no zoom, dim or lift on hover anywhere on the site. */
+:is(.service-card-photo,.support-photo,.project-card-image,.portfolio-item,.certificate-paper) img{transition:none}
+:is(.service-card,.support-story,.project-card,.portfolio-item,.certificate-card):hover img{transform:none;filter:none}
+.certificate-card:hover img{box-shadow:0 9px 20px #30291b1c}
+.partner-card,.partner-card:hover{transform:none}
